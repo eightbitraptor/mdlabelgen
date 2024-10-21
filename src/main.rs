@@ -24,8 +24,8 @@ const PRINTABLE_HEIGHT_PX: u32 = PRINTABLE_HEIGHT * DESIRED_DPMM;
 
 const PADDING: i32 = 20;
 
-const MD_LOGO_SIZE: u32 = 120;
-const TEXT_SIZE_PT: f32 = 60.0;
+const MD_LOGO_SIZE: u32 = 160;
+const TEXT_SIZE_PT: f32 = 74.0;
 
 
 #[derive(Parser, Debug)]
