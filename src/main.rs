@@ -24,6 +24,10 @@ const PRINTABLE_HEIGHT_PX: u32 = PRINTABLE_HEIGHT * DESIRED_DPMM;
 
 const PADDING: i32 = 20;
 
+const MD_LOGO_SIZE: u32 = 120;
+const TEXT_SIZE_PT: f32 = 60.0;
+
+
 #[derive(Parser, Debug)]
 #[command(version, about, long_about=None)]
 struct Args {
@@ -58,10 +62,8 @@ fn overlay_text(
     artist_text: String,
     release_year: Option<String>
 ) -> Result<RgbImage, Box<dyn Error>> {
-
     const TEXT_AREA_HEIGHT: u32 = LABEL_HEIGHT_PX - LABEL_WIDTH_PX;
     const LINE_HEIGHT: u32 = TEXT_AREA_HEIGHT / 3;
-    const TEXT_SIZE_PT: f32 = 60.0;
 
     let font_scale = PxScale::from(TEXT_SIZE_PT);
 
@@ -94,8 +96,6 @@ fn overlay_text(
 }
 
 fn overlay_minidisc_logo(image: &mut RgbImage) -> Result<(), Box<dyn Error>> {
-    const MD_LOGO_SIZE: u32 = 120;
-
     let md_logo_path = download_dir()
         .ok_or("can't get download dir")?
         .as_path().join("md30wiki_color.png");
